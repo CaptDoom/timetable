@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Slots</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Classroom Availability for <%= day %> at <%= time %>:00</h2>
+        
+        <h3>Available Classrooms</h3>
+        <ul class="list-group">
+            <% if (emptyClassrooms.length > 0) { %>
+                <% emptyClassrooms.forEach(function(classroom) { %>
+                    <li class="list-group-item"><%= classroom %></li>
+                <% }) %>
+            <% } else { %>
+                <li class="list-group-item text-danger">No available classrooms at this time.</li>
+            <% } %>
+        </ul>
+
+        <h3 class="mt-4">Ongoing Classes</h3>
+        <div class="table-responsive">
+            <%= ongoingClassesHtml %>
+        </div>
+
+        <a href="/" class="btn btn-primary mt-4">Back to Home</a>
+    </div>
+</body>
+</html>
